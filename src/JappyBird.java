@@ -6,30 +6,34 @@ import java.util.Vector;
  * @author Maximilien
  * @author Julien
  */
-public class Game {
+public class JappyBird {
 	
 	public static final String gameName = "Jappy Bird";
 	public static Window fenetre;
 	
 	static Bird bird;
 	public static Vector<Tube> tubes;
+	public static int score = 0;
 	
-	public Game() {
-		//Initialisation de l'IHM et chargement des sprites
+	public JappyBird() {
+		//Initialisation de l'IHM
 		fenetre = new Window(this);
-
 		bird = new Bird();
+		//initialisation des tuyaux
+		for(int i=0; i<500; i++)
+			tubes.add(new Tube());
 	}
 	
 	/**
 	 * Boucle de jeu principale
 	 */
 	public int start(){
-		//Initialisation
-		int score = 0;
 		//tant que l'oiseau n'est pas en collision
-		while(collision()){
+		while(!collision()){
 			//on avance les tubes
+			for(Tube t:tubes)
+				t.avance();
+			//waiting
 			try {Thread.sleep(50);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
@@ -40,13 +44,14 @@ public class Game {
 	//retourne l'état actuel de collision
 	public boolean collision(){
 		for(Tube t:tubes)
-			if(t.collision(getBird()))
+			if(t.collisionAvec(getBird()))
 				return true;
 		return false;
 	}
+	
 
 	public static void main(String[] args) {
-		Game J = new Game();
+		JappyBird J = new JappyBird();
 		J.start();
 	}
 	

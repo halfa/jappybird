@@ -4,13 +4,16 @@
  * @param espacement entre les deux tubes
  * @author Maximilien
  */
-public class Tube {
+public class Tube extends InGameObj{
+	
 	public static int l_tube = 26;
-
-	public int x;
-	public int y;
 	public int espacement;
 	public int vitesse = 5;
+	
+
+	public Tube() {
+		//TODO: déplacer les initialisations et gérer le rand
+	}
 	
 	/**
 	 * 
@@ -21,10 +24,6 @@ public class Tube {
 		espacement = e;
 	}
 	
-	//Analyse des collisions
-	public boolean collision (Bird b){
-		return false;
-	}
 	//Décale le tube
 	public void avance(){
 		x -= vitesse;

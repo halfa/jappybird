@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Window {
-	protected static Game jeu;
+	protected static JappyBird jeu;
 	protected static JFrame frame;
 	private static DrawPanel screen;
 	private static BufferedImage fond = null;
@@ -22,9 +22,9 @@ public class Window {
 	private static final int height = 256+38;
 	private static final int width = 144+15;
 	
-	public Window(Game j) {
+	public Window(JappyBird j) {
 		jeu = j;
-		frame = new JFrame(Game.gameName);
+		frame = new JFrame(JappyBird.gameName);
 		frame.setSize(width, height);
 		//frame.setResizable(false); 
 		

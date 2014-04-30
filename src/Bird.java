@@ -2,7 +2,7 @@
  * @author Maximilien
  * @author Julien
  */
-public class Bird {
+public class Bird extends InGameObj{
 
 	public static final int h_bird = 12;
 	public static final int l_bird = 17;
@@ -15,11 +15,6 @@ public class Bird {
 		y = 256/2;
 	}
 	
-	public int getXgauche(){ return x; }
-	public int getYhaut(){ return y; }
-	public int getXdroit(){ return x+l_bird; }
-	public int getYbas(){ return y+h_bird; }
-
 	//initialise le compteur de monté suite à un clic souris
 	public void bump() {
 		
