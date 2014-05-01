@@ -8,8 +8,6 @@ public class Tube extends InGameObj{
 	
 	public static int l_tube = 26;
 	public int espacement;
-	public int vitesse = 5;
-	
 
 	public Tube() {
 		//TODO: déplacer les initialisations et gérer le rand
