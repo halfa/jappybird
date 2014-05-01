@@ -18,8 +18,10 @@ public class JappyBird {
 	public JappyBird() {
 		//Initialisation de l'IHM
 		fenetre = new Window(this);
+
+		//Initialisation du jeu
 		bird = new Bird();
-		//initialisation des tuyaux
+		//-initialisation des tuyaux
 		for(int i=0; i<500; i++)
 			tubes.add(new Tube());
 	}
@@ -33,6 +35,8 @@ public class JappyBird {
 			//on avance les tubes
 			for(Tube t:tubes)
 				t.avance();
+			//on rafraichi l'écran
+
 			//waiting
 			try {Thread.sleep(50);}
 			catch (InterruptedException e) {e.printStackTrace();}
@@ -41,7 +45,7 @@ public class JappyBird {
 		return score;
 	}
 	
-	//retourne l'état actuel de collision
+	//retourne l'état actuel de collision aux niveau des éléments du jeu
 	public boolean collision(){
 		for(Tube t:tubes)
 			if(t.collisionAvec(getBird()))
