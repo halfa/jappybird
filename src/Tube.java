@@ -6,17 +6,19 @@
  */
 public class Tube extends InGameObj{
 	
-	public static int l_tube = 26;
-	public int espacement;
-
+	public int espacement; //la hauteur entre t_haut et t_bas
 	public Tube() {
 		//TODO: déplacer les initialisations et gérer le rand
 	}
 	
 	/**
-	 * 
+	 * Constucteur de tube.
+	 * @param la position de l'ouverture du tube
+	 *        cad le point milieux-haut-gauche et l'épaisseur vers le bas
 	 */
 	public Tube(int posX, int posY, int e) {
+		//on passe les dimentions
+		super(100,26)
 		x = posX;
 		y = posY;
 		espacement = e;
@@ -26,8 +28,8 @@ public class Tube extends InGameObj{
 	public void avance(){
 		x -= vitesse;
 	}
-	//regarde si le tube est sorti de l'écran
-	public boolean offScreen(){
+	//regarde si le tube est sorti de l'écran à gauche
+	public boolean offScreenLeft(){
 		return x+l_tube<0;
 	}
 
