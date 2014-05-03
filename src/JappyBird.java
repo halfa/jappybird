@@ -14,6 +14,7 @@ public class JappyBird {
 	static Bird bird;
 	public static Vector<Tube> tubes;
 	public static int score = 0;
+	public static int speed = 5;
 	
 	public JappyBird() {
 		//Initialisation de l'IHM
@@ -35,7 +36,7 @@ public class JappyBird {
 			//on avance les tubes
 			for(Tube t:tubes)
 				t.avance();
-			//on rafraichi l'écran
+			//on rafraichi l'Ã©cran
 
 			//waiting
 			try {Thread.sleep(50);}
@@ -45,7 +46,7 @@ public class JappyBird {
 		return score;
 	}
 	
-	//retourne l'état actuel de collision aux niveau des éléments du jeu
+	//retourne l'Ã©tat actuel de collision aux niveau des Ã©lÃ©ments du jeu
 	public boolean collision(){
 		for(Tube t:tubes)
 			if(t.collisionAvec(getBird()))

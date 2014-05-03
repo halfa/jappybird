@@ -5,7 +5,7 @@
  */
 public abstract class InGameObj {
 	
-	//(x,y) en haut à gauche de l'objet
+	//(x,y) en haut Ã  gauche de l'objet
 	public int x;
 	public int y;
 	public int hauteur;

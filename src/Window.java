@@ -18,7 +18,7 @@ public class Window {
 	private static BufferedImage tubeDown = null;
 	private static BufferedImage tubeUp = null;
 	
-	//Taille de la fenêtre + bordures
+	//Taille de la fenÃªtre + bordures
 	private static final int height = 256+38;
 	private static final int width = 144+15;
 	
@@ -32,7 +32,7 @@ public class Window {
 		try{ load();
 		} catch (IOException e) { System.out.println(e); }
 		
-		//Initialisatio de la fenêtre
+		//Initialisatio de la fenÃªtre
 		screen = new DrawPanel();
 		frame.add(screen);
 		frame.setVisible(true);
@@ -40,7 +40,7 @@ public class Window {
 		//On passe la main au jeu !
 	}
 	
-	//Charge les spites nécéssaires
+	//Charge les spites nÃ©cÃ©ssaires
 	private void load() throws IOException{
 		fond = ImageIO.read(new File("rsc/fond2.png"));
 		bird = ImageIO.read(new File("rsc/bird.png"));
@@ -48,9 +48,9 @@ public class Window {
 		tubeUp = ImageIO.read(new File("rsc/tubeUp.png"));
 	}
 	
-	//Paneau de dessin pour la fenêtre
+	//Paneau de dessin pour la fenÃªtre
 	public class DrawPanel extends JPanel {
-		static final long serialVersionUID = 1L; //compatibilité
+		static final long serialVersionUID = 1L; //compatibilitÃ©
 		public DrawPanel() {
 			//Double buffering
 			super(true);
@@ -62,21 +62,20 @@ public class Window {
 		public void paint(Graphics g){
 			super.paint(g);
 			Graphics2D g2d = (Graphics2D)g;
-			//Création du composite pour l'overlay
+			//CrÃ©ation du composite pour l'overlay
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 			//Wallpaper
 			g2d.drawImage(Window.fond, 0, 0, this);
 			//Draw tubes
 			for(Tube t:JappyBird.tubes){
-				g2d.drawImage(tubeDown, t.x, t.getYBas();, this);
-				g2d.drawImage(tubeUp, 100, 0, this);
+				g2d.drawImage(tubeUp, t.x, t.y, this);
+				g2d.drawImage(tubeDown, t.x, t.getYBas(), this);
 			}
 			//Draw de l'oiseau en fonction de sa position
 			g2d.drawImage(bird, jeu.getBird().getXgauche(), jeu.getBird().getYhaut(), this);
-			
 		}
 		
-		//Fork de la méthode ImageObserver pour les besoins de DrawImage
+		//Fork de la mÃ©thode ImageObserver pour les besoins de DrawImage
 		public class ImageObs implements ImageObserver {
 			public boolean imageUpdate(Image arg0, int arg1, int arg2, int arg3,
 					int arg4, int arg5) {

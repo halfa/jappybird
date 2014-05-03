@@ -1,5 +1,5 @@
 /**
- * Gestion des déplacments à la souris
+ * Gestion des dÃ©placments Ã  la souris
  * @author Maximilien
  */
 
@@ -10,7 +10,7 @@ public class Control extends MouseAdapter {
 	public Control() {
 	}
 	
-	//Déclenchement sur un click souris
+	//DÃ©clenchement sur un click souris
 	public void mousePressed(){
 		JappyBird.bird.bump();
 	}
