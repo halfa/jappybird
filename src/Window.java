@@ -18,7 +18,7 @@ public class Window {
 	private static BufferedImage tubeDown = null;
 	private static BufferedImage tubeUp = null;
 	
-	//Taille de la fenêtre
+	//Taille de la fenêtre + bordures
 	private static final int height = 256+38;
 	private static final int width = 144+15;
 	
@@ -37,7 +37,7 @@ public class Window {
 		frame.add(screen);
 		frame.setVisible(true);
 		
-		//On passe la main au jeu
+		//On passe la main au jeu !
 	}
 	
 	//Charge les spites nécéssaires
@@ -50,23 +50,27 @@ public class Window {
 	
 	//Paneau de dessin pour la fenêtre
 	public class DrawPanel extends JPanel {
-		static final long serialVersionUID = 1L;
+		static final long serialVersionUID = 1L; //compatibilité
 		public DrawPanel() {
 			//Double buffering
 			super(true);
 		}
 		
-		//Moteur de rendu
+		/*****************************
+		 * Moteur de rendu graphique *
+		 *****************************/
 		public void paint(Graphics g){
 			super.paint(g);
 			Graphics2D g2d = (Graphics2D)g;
 			//Création du composite pour l'overlay
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
-			//Fond
+			//Wallpaper
 			g2d.drawImage(Window.fond, 0, 0, this);
-			//Elements du jeu -- environement
-			g2d.drawImage(tubeDown, 100, 200, this);
-			g2d.drawImage(tubeUp, 100, 0, this);
+			//Draw tubes
+			for(Tube t:JappyBird.tubes){
+				g2d.drawImage(tubeDown, t.x, t.getYBas();, this);
+				g2d.drawImage(tubeUp, 100, 0, this);
+			}
 			//Draw de l'oiseau en fonction de sa position
 			g2d.drawImage(bird, jeu.getBird().getXgauche(), jeu.getBird().getYhaut(), this);
 			

@@ -13,17 +13,21 @@ public class Tube extends InGameObj{
 	
 	/**
 	 * Constucteur de tube.
-	 * @param la position de l'ouverture du tube
-	 *        cad le point milieux-haut-gauche et l'épaisseur vers le bas
+	 * @param la position de l'__ouverture__ du tube
+	 *        cad le point milieux-haut-gauche
 	 */
 	public Tube(int posX, int posY, int e) {
 		//on passe les dimentions
 		super(100,26)
+		//les positions sont celles du tube haut
 		x = posX;
 		y = posY;
 		espacement = e;
 	}
-	
+
+	//pour le tube du bas, seul la position y change
+	public int getXYubeBas(){ return y+hauteur+espacement;}
+
 	//Décale le tube
 	public void avance(){
 		x -= vitesse;
