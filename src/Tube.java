@@ -5,11 +5,12 @@
  * @author Maximilien
  */
 public class Tube extends InGameObj{
-	
+
 	public int espacement; //la hauteur entre t_haut et t_bas
+	
 	public Tube() {
-		super(100,26);
-		//TODO: déplacer les initialisations et gérer le rand
+		super(100,26); //dim d'un seul des deux tubes
+		
 	}
 	
 	/**

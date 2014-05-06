@@ -19,13 +19,13 @@ public class Window {
 	private static BufferedImage tubeUp = null;
 	
 	//Taille de la fenêtre + bordures
-	private static final int height = 256+38;
-	private static final int width = 144+15;
+	private static final int height = 256;
+	private static final int width = 144;
 	
 	public Window(JappyBird j) {
 		jeu = j;
 		frame = new JFrame(JappyBird.gameName);
-		frame.setSize(width, height);
+		frame.setSize(width+15, height+38);
 		//frame.setResizable(false); 
 		
 		//Chargement des sprites
@@ -82,5 +82,11 @@ public class Window {
 				return false;
 			}
 		}
+
+
 	}
+
+	//Get&Set
+	public int getWidth(){ return width; }
+	public int getHeight(){ return height; }
 }
