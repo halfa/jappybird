@@ -1,18 +1,17 @@
 import java.util.Vector;
 
-/**
+/********************************
  * Classe de gestion du jeu
- * 
  * @author Maximilien
  * @author Julien
- */
+ ********************************/
 public class JappyBird {
 	
 	public static final String gameName = "Jappy Bird";
-	public final Window fenetre = new Window(this); //IHM
+	public static Window fenetre;
 	//ingame objects
 	public static final Bird bird = new Bird();
-	public static Vector<Tube> tubes;
+	public static Vector<Tube> tubes = new Vector<Tube>();
 	//numbers
 	public static int score = 0;
 	//distance entre le tube du haut et celui du bas
@@ -21,11 +20,14 @@ public class JappyBird {
 
 	public JappyBird() {
 		//initialisation des tuyaux
-		for(int i=0; i<500; i++)
-			tubes.add(new Tube());
+		//for(int i=0; i<500; i++)
+		//	tubes.add(new Tube());
+		tubes.add(new Tube());
+		System.out.println("tubes passed");
+		fenetre = new Window(this); //IHM
 	}
 	
-	/**
+	/***************************
 	 * Boucle de jeu principale
 	 */
 	public int start(){

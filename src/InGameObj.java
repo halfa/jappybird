@@ -23,7 +23,14 @@ public abstract class InGameObj {
 	
 	//Fonction qui test si il y a collision entre deux objets
 	public boolean collisionAvec(InGameObj igo){
-		//TODO: collision system
+		//if(this.x)
+		return false;
+	}
+
+	//vérifie si un nombre appartient à l'interval [a;b]
+	public boolean isIn(int n, int a, int b){
+		if(n>a && n<b)
+			return true;
 		return false;
 	}
 
