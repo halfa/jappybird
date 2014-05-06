@@ -6,11 +6,11 @@
  */
 public class Tube extends InGameObj{
 
-	public int espacement; //la hauteur entre t_haut et t_bas
+	public final int espacement; //la hauteur entre t_haut et t_bas
 	
 	public Tube() {
 		super(100,26); //dim d'un seul des deux tubes
-		
+		Tube(JappyBird.getWidth()+1, JappyBird.getHeight()+Math.rand(-50,50), JappyBird.betweenTubes)
 	}
 	
 	/**
