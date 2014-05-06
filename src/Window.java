@@ -87,6 +87,6 @@ public class Window {
 	}
 
 	//Get&Set
-	public int getWidth(){ return width; }
-	public int getHeight(){ return height; }
+	public static int getWidth(){ return width; }
+	public static int getHeight(){ return height; }
 }

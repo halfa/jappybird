@@ -9,21 +9,20 @@ import java.util.Vector;
 public class JappyBird {
 	
 	public static final String gameName = "Jappy Bird";
-	public static final Window fenetre = new Window(this); //IHM
+	public final Window fenetre = new Window(this); //IHM
 	//ingame objects
 	public static final Bird bird = new Bird();
 	public static Vector<Tube> tubes;
 	//numbers
 	public static int score = 0;
 	//distance entre le tube du haut et celui du bas
-	public static int betweenTubes = 15; 
-
-
+	public static int betweenTubes = 15;
+	public static int speed = 5;
 
 	public JappyBird() {
 		//initialisation des tuyaux
-		//for(int i=0; i<500; i++)
-		//	tubes.add(new Tube());
+		for(int i=0; i<500; i++)
+			tubes.add(new Tube());
 	}
 	
 	/**

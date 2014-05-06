@@ -4,13 +4,17 @@
  * @param espacement entre les deux tubes
  * @author Maximilien
  */
+import java.lang.Math;
+
 public class Tube extends InGameObj{
 
 	public final int espacement; //la hauteur entre t_haut et t_bas
 	
 	public Tube() {
 		super(100,26); //dim d'un seul des deux tubes
-		Tube(JappyBird.getWidth()+1, JappyBird.getHeight()+Math.rand(-50,50), JappyBird.betweenTubes)
+		x = Window.getWidth()+1;
+		y = Window.getHeight()+((int)Math.random()*100-50);
+		espacement = JappyBird.betweenTubes;
 	}
 	
 	/**
