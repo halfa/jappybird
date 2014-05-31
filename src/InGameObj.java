@@ -33,5 +33,4 @@ public abstract class InGameObj {
 			return true;
 		return false;
 	}
-
 }
