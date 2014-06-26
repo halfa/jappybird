@@ -17,37 +17,44 @@ public class Window {
 	private static BufferedImage bird = null;
 	private static BufferedImage tubeDown = null;
 	private static BufferedImage tubeUp = null;
-	
+
 	//Taille de la fenêtre + bordures
 	private static final int height = 256;
 	private static final int width = 144;
-	
+
 	public Window(JappyBird j) {
 		jeu = j;
 		frame = new JFrame(JappyBird.gameName);
 		frame.setSize(width+15, height+38);
-		//frame.setResizable(false); 
-		
+		//frame.setResizable(false);
+
 		//Chargement des sprites
 		try{ load();
 		} catch (IOException e) { System.out.println(e); }
-		
+
 		//Initialisatio de la fenêtre
 		screen = new DrawPanel();
 		frame.add(screen);
 		frame.setVisible(true);
-		
+
 		//On passe la main au jeu !
 	}
-	
-	//Charge les spites nécéssaires
+
+	//Chargement les spites
 	private void load() throws IOException{
 		fond = ImageIO.read(new File("rsc/fond2.png"));
 		bird = ImageIO.read(new File("rsc/bird.png"));
 		tubeDown = ImageIO.read(new File("rsc/tubeDown.png"));
 		tubeUp = ImageIO.read(new File("rsc/tubeUp.png"));
 	}
-	
+
+	//Get&Set
+	public static int getWidth(){ return width; }
+	public static int getHeight(){ return height; }
+
+	//Commandes de la classe
+
+
 	//Paneau de dessin pour la fenêtre
 	public class DrawPanel extends JPanel {
 		static final long serialVersionUID = 1L; //compatibilité
@@ -55,7 +62,7 @@ public class Window {
 			//Double buffering
 			super(true);
 		}
-		
+
 		/*****************************
 		 * Moteur de rendu graphique *
 		 *****************************/
@@ -74,7 +81,7 @@ public class Window {
 			//Draw de l'oiseau en fonction de sa position
 			g2d.drawImage(bird, jeu.getBird().getXgauche(), jeu.getBird().getYhaut(), this);
 		}
-		
+
 		//Fork de la méthode ImageObserver pour les besoins de DrawImage
 		public class ImageObs implements ImageObserver {
 			public boolean imageUpdate(Image arg0, int arg1, int arg2, int arg3,
@@ -86,7 +93,4 @@ public class Window {
 
 	}
 
-	//Get&Set
-	public static int getWidth(){ return width; }
-	public static int getHeight(){ return height; }
 }

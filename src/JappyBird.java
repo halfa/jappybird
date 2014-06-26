@@ -1,4 +1,4 @@
-import java.util.Vector;
+ import java.util.Vector;
 
 /********************************
  * Classe de gestion du jeu
@@ -6,7 +6,7 @@ import java.util.Vector;
  * @author Julien
  ********************************/
 public class JappyBird {
-	
+
 	public static final String gameName = "Jappy Bird";
 	public static Window fenetre;
 	//ingame objects
@@ -26,26 +26,25 @@ public class JappyBird {
 		System.out.println("tubes passed");
 		fenetre = new Window(this); //IHM
 	}
-	
+
 	/***************************
 	 * Boucle de jeu principale
-	 */
+	 ***************************/
 	public int start(){
 		//tant que l'oiseau n'est pas en collision
 		while(!collision()){
 			//on avance les tubes
 			for(Tube t:tubes)
 				t.avance();
-			//on rafraichi l'écran
-
-			//waiting
+			//l'écran est raffraichi lors de la prochaine itération de paint()
+			//on attend
 			try {Thread.sleep(50);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
-		
+
 		return score;
 	}
-	
+
 	//retourne l'état actuel de collision aux niveau des éléments du jeu
 	public boolean collision(){
 		for(Tube t:tubes)
@@ -53,13 +52,13 @@ public class JappyBird {
 				return true;
 		return false;
 	}
-	
+
 
 	public static void main(String[] args) {
 		JappyBird J = new JappyBird();
 		J.start();
 	}
-	
+
 	//getSet
 	public Bird getBird() {  return bird; }
 
