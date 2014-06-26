@@ -4,7 +4,7 @@
  */
 public class Bird extends InGameObj{
 
-	private int y;
+	//private int y;
 	public int sinceLastBump;
 	
 	public Bird() {
