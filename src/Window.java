@@ -9,6 +9,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/********************************
+ * Gestion de la fenêtre
+ * et moteur graphique
+ * @author Maximilien Richer
+ ********************************/
+
 public class Window {
 	protected static JappyBird jeu;
 	protected static JFrame frame;
@@ -48,6 +54,11 @@ public class Window {
 		tubeUp = ImageIO.read(new File("rsc/tubeUp.png"));
 	}
 
+	//refresh JPanel
+	public void refresh(){
+		screen.repaint();
+	}
+
 	//Get&Set
 	public static int getWidth(){ return width; }
 	public static int getHeight(){ return height; }
@@ -73,7 +84,7 @@ public class Window {
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 			//Wallpaper
 			g2d.drawImage(Window.fond, 0, 0, this);
-			//Draw tubes
+			//Draw des tubes à l'écran
 			for(Tube t:JappyBird.tubes){
 				g2d.drawImage(tubeUp, t.x, t.y, this);
 				g2d.drawImage(tubeDown, t.x, t.getYBas(), this);

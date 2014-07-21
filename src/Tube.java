@@ -9,14 +9,14 @@ import java.lang.Math;
 public class Tube extends InGameObj{
 
 	public final int espacement; //la hauteur entre t_haut et t_bas
-	
+
 	public Tube() {
 		super(100,26); //dim d'un seul des deux tubes
 		x = Window.getWidth()+1;
 		y = Window.getHeight()+((int)Math.random()*100-50);
 		espacement = JappyBird.betweenTubes;
 	}
-	
+
 	/**
 	 * Constucteur de tube.
 	 * @param la position de l'__ouverture__ du tube
@@ -38,7 +38,7 @@ public class Tube extends InGameObj{
 	public void avance(){
 		x -= JappyBird.speed;
 	}
-	//regarde si le tube est sorti de l'écran à gauche
+	//test si le tube est sorti de l'écran à gauche
 	public boolean offScreenLeft(){
 		return x+largeur<0;
 	}

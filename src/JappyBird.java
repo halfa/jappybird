@@ -1,8 +1,8 @@
  import java.util.Vector;
 
 /********************************
- * Classe de gestion du jeu
- * @author Maximilien
+ * Gestion du jeu
+ * @author Maximilien Richer
  * @author Julien
  ********************************/
 public class JappyBird {
@@ -20,8 +20,8 @@ public class JappyBird {
 
 	public JappyBird() {
 		//initialisation des tuyaux
-		//for(int i=0; i<500; i++)
-		//	tubes.add(new Tube());
+		for(int i=0; i<500; i++)
+			tubes.add(new Tube());
 		tubes.add(new Tube());
 		System.out.println("tubes passed");
 		fenetre = new Window(this); //IHM
@@ -37,7 +37,8 @@ public class JappyBird {
 			for(Tube t:tubes)
 				t.avance();
 			//l'écran est raffraichi lors de la prochaine itération de paint()
-			//on attend
+			fenetre.refresh();
+			//temporisation
 			try {Thread.sleep(50);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
@@ -45,7 +46,9 @@ public class JappyBird {
 		return score;
 	}
 
-	//retourne l'état actuel de collision aux niveau des éléments du jeu
+	/** l'état actuel de collision aux niveau des éléments du jeu
+	 *  @return vrai si il y a collision
+	 */
 	public boolean collision(){
 		for(Tube t:tubes)
 			if(t.collisionAvec(getBird()))
