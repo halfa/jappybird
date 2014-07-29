@@ -4,6 +4,7 @@
  * Gestion du jeu, scoring...
  * @author Maximilien Richer
  * @author Julien
+ * @author Axel Caro
  ********************************/
 public class JappyBird {
 
