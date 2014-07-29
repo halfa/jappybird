@@ -1,7 +1,7 @@
  import java.util.Vector;
 
 /********************************
- * Gestion du jeu
+ * Gestion du jeu, scoring...
  * @author Maximilien Richer
  * @author Julien
  ********************************/
@@ -15,15 +15,13 @@ public class JappyBird {
 	//numbers
 	public static int score = 0;
 	//distance entre le tube du haut et celui du bas
-	public static int betweenTubes = 15;
+	public static int betweenTubes = 15; //pas dans <Tube> car paramètre du jeu ?
 	public static int speed = 5;
 
 	public JappyBird() {
 		//initialisation des tuyaux
 		for(int i=0; i<500; i++)
 			tubes.add(new Tube());
-		tubes.add(new Tube());
-		System.out.println("tubes passed");
 		fenetre = new Window(this); //IHM
 	}
 
