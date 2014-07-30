@@ -1,9 +1,9 @@
  import java.util.Vector;
 
 /********************************
- * Gestion du jeu, scoring...
+ * Game management, scoring...
  * @author Maximilien Richer
- * @author Julien
+ * @author Julien Vifflanzef
  * @author Axel Caro
  ********************************/
 public class JappyBird {
@@ -15,29 +15,27 @@ public class JappyBird {
 	public static Vector<Tube> tubes = new Vector<Tube>();
 	//numbers
 	public static int score = 0;
-	//distance entre le tube du haut et celui du bas
-	public static int betweenTubes = 15; //pas dans <Tube> car paramètre du jeu ?
+	//distance between top and bot tube
+	public static int betweenTubes = 30; //here because it is a game parameter
 	public static int speed = 5;
 
 	public JappyBird() {
-		//initialisation des tuyaux
+		// tubes init.
 		for(int i=0; i<500; i++)
 			tubes.add(new Tube());
 		fenetre = new Window(this); //IHM
 	}
 
 	/***************************
-	 * Boucle de jeu principale
+	 * Main loop
 	 ***************************/
 	public int start(){
-		//tant que l'oiseau n'est pas en collision
 		while(!collision()){
-			//on avance les tubes
+			//tubes are going foward
 			for(Tube t:tubes)
-				t.avance();
-			//l'écran est raffraichi lors de la prochaine itération de paint()
+				t.foward();
 			fenetre.refresh();
-			//temporisation
+			//not so fast !
 			try {Thread.sleep(50);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
@@ -45,8 +43,8 @@ public class JappyBird {
 		return score;
 	}
 
-	/** l'état actuel de collision aux niveau des éléments du jeu
-	 *  @return vrai si il y a collision
+	/** collisions between game elements
+	 *  @return true if a collision occur
 	 */
 	public boolean collision(){
 		for(Tube t:tubes)

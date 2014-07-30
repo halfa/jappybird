@@ -9,22 +9,21 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-/********************************
- * Gestion de la fenêtre
- * et moteur graphique
+/************************************
+ * Window management & Graphic engine
  * @author Maximilien Richer
- ********************************/
+ ************************************/
 
 public class Window {
 	protected static JappyBird jeu;
 	protected static JFrame frame;
 	private static DrawPanel screen;
-	private static BufferedImage fond = null;
+	private static BufferedImage background = null;
 	private static BufferedImage bird = null;
 	private static BufferedImage tubeDown = null;
 	private static BufferedImage tubeUp = null;
 
-	//Taille de la fenêtre + bordures
+	//Window size (inner, usable surface)
 	private static final int height = 256;
 	private static final int width = 144;
 
@@ -34,21 +33,21 @@ public class Window {
 		frame.setSize(width+15, height+38);
 		//frame.setResizable(false);
 
-		//Chargement des sprites
+		//Sprites loading
 		try{ load();
 		} catch (IOException e) { System.out.println(e); }
 
-		//Initialisatio de la fenêtre
+		//Windows init.
 		screen = new DrawPanel();
 		frame.add(screen);
 		frame.setVisible(true);
 
-		//On passe la main au jeu !
+		//Hand to the game engine !
 	}
 
 	//Chargement les spites
 	private void load() throws IOException{
-		fond = ImageIO.read(new File("rsc/fond2.png"));
+		background = ImageIO.read(new File("rsc/fond2.png"));
 		bird = ImageIO.read(new File("rsc/bird.png"));
 		tubeDown = ImageIO.read(new File("rsc/tubeDown.png"));
 		tubeUp = ImageIO.read(new File("rsc/tubeUp.png"));
@@ -75,25 +74,25 @@ public class Window {
 		}
 
 		/*****************************
-		 * Moteur de rendu graphique *
+		 * Graphic render engine     *
 		 *****************************/
 		public void paint(Graphics g){
 			super.paint(g);
 			Graphics2D g2d = (Graphics2D)g;
-			//Création du composite pour l'overlay
+			//Create composite for l'overlay
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 			//Wallpaper
-			g2d.drawImage(Window.fond, 0, 0, this);
-			//Draw des tubes à l'écran
+			g2d.drawImage(Window.background, 0, 0, this);
+			//Draw tubes into screen
 			for(Tube t:JappyBird.tubes){
 				g2d.drawImage(tubeUp, t.x, t.y, this);
 				g2d.drawImage(tubeDown, t.x, t.getYBas(), this);
 			}
-			//Draw de l'oiseau en fonction de sa position
+			//Draw bird
 			g2d.drawImage(bird, jeu.getBird().getXgauche(), jeu.getBird().getYhaut(), this);
 		}
 
-		//Fork de la méthode ImageObserver pour les besoins de DrawImage
+		//Fork of ImageObserver because it's needed for DrawImage
 		public class ImageObs implements ImageObserver {
 			public boolean imageUpdate(Image arg0, int arg1, int arg2, int arg3,
 					int arg4, int arg5) {
