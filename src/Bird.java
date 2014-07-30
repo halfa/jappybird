@@ -9,23 +9,19 @@ public class Bird extends InGameObj{
 
 	public Bird() {
 		super(12,17);
-		x = 144/2; //l'oiseau est (et reste) au milieu de l'écran
-		sinceLastBump = 0;
-		y = 256/2;
-		//les coordonnées sont en haut à gauche
-		x = 144/3-6;
+		x = 144/3-6; //bird position is fixed in the middle of the screen
 		sinceLastBump = 0;
 		y = 256/2; //altitude
 	}
 
-	//initialise le compteur de monté suite à un clic souris
+	//initialise the counter based on last mouse click
 	public void bump() {
 		y += 25;
 	}
 
-	//Chute libre de l'oiseau -- action par défaut
+	//by default -> fall !
 	public void fall(){
 		sinceLastBump++;
-		y += sinceLastBump; //chute linéaire
+		y += sinceLastBump; //linear fall
 	}
 }

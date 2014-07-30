@@ -15,8 +15,7 @@ public class JappyBird {
 	public static Vector<Tube> tubes = new Vector<Tube>();
 	//numbers
 	public static int score = 0;
-	//distance between top and bot tube
-	public static int betweenTubes = 30; //here because it is a game parameter
+	public static int betweenTubes = 30; //distance between top and bot tube here because it is a game parameter
 	public static int speed = 5;
 
 	public JappyBird() {
@@ -43,12 +42,12 @@ public class JappyBird {
 		return score;
 	}
 
-	/** collisions between game elements
+	/** Collisions between game elements
 	 *  @return true if a collision occur
 	 */
 	public boolean collision(){
 		for(Tube t:tubes)
-			if(t.collisionAvec(getBird()))
+			if(t.collideWith(getBird()))
 				return true;
 		return false;
 	}

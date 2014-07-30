@@ -62,24 +62,21 @@ public class Window {
 	public static int getWidth(){ return width; }
 	public static int getHeight(){ return height; }
 
-	//Commandes de la classe
-
-
-	//Paneau de dessin pour la fenêtre
+	//Draw panel for window
 	public class DrawPanel extends JPanel {
-		static final long serialVersionUID = 1L; //compatibilité
+		static final long serialVersionUID = 1L; //compatibility
 		public DrawPanel() {
 			//Double buffering
 			super(true);
 		}
 
 		/*****************************
-		 * Graphic render engine     *
+		 *   Graphic Render Engine   *
 		 *****************************/
 		public void paint(Graphics g){
 			super.paint(g);
 			Graphics2D g2d = (Graphics2D)g;
-			//Create composite for l'overlay
+			//Create composite for overlay
 			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 			//Wallpaper
 			g2d.drawImage(Window.background, 0, 0, this);
