@@ -25,17 +25,18 @@ public class JappyBird {
 		fenetre = new Window(this); //IHM
 	}
 
-	/***************************
-	 * Main loop
-	 ***************************/
+	/*************
+	 * Main loop *
+	 *************/
 	public int start(){
 		while(!collision()){
 			//tubes are going foward
 			for(Tube t:tubes)
 				t.foward();
 			fenetre.refresh();
+			bird.fall();
 			//not so fast !
-			try {Thread.sleep(50);}
+			try {Thread.sleep(40);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
 
@@ -51,7 +52,6 @@ public class JappyBird {
 				return true;
 		return false;
 	}
-
 
 	public static void main(String[] args) {
 		JappyBird J = new JappyBird();
