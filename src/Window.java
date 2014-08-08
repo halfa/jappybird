@@ -42,6 +42,8 @@ public class Window {
 		frame.add(screen);
 		frame.setVisible(true);
 
+
+
 		//Hand to the game engine !
 	}
 

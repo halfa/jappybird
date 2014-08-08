@@ -1,7 +1,5 @@
 /**
- * Un tube est constitué d'une partie supérieur et inférieur
- * @param position est définie par le point en bas à gauche du tube supérieur
- * @param space entre les deux tubes
+ * A tube is considered as one and have an up and down part
  * @author Maximilien
  */
 import java.lang.Math;
@@ -11,7 +9,7 @@ public class Tube extends InGameObj{
 	public final int space; //between the tubes
 
 	public Tube() {
-		super(100,26); //dim d'un seul des deux tubes
+		super(100,26); //TODO bad behavior
 		x = Window.getWidth()+1;
 		y = Window.getHeight()+((int)Math.random()*100-270);
 		space = JappyBird.betweenTubes;
