@@ -70,6 +70,7 @@ public class Window {
 		public DrawPanel() {
 			//Double buffering
 			super(true);
+			addMouseListener(new Control());
 		}
 
 		/*****************************

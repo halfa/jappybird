@@ -5,6 +5,7 @@
  * @author Maximilien Richer
  * @author Julien Vifflanzef
  * @author Axel Caro
+ * @version 0.0.1
  ********************************/
 public class JappyBird {
 

@@ -13,6 +13,7 @@ public class Control extends MouseAdapter {
 	//On mouse press
 	public void mousePressed(){
 		JappyBird.bird.bump();
+		System.out.println("controlEvent");
 	}
 
 }
