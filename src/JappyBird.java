@@ -29,8 +29,8 @@ public class JappyBird {
 	/*************
 	 * Main loop *
 	 *************/
-	public int start(){
-		while(!collision()){
+	public void start(){
+		while(this.isItTheEnd()){
 			//tubes are going foward
 			for(Tube t:tubes)
 				t.foward();
@@ -40,8 +40,16 @@ public class JappyBird {
 			try {Thread.sleep(40);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
+	}
 
-		return score;
+	/**
+	 *
+	 */
+	public boolean isItTheEnd(){
+		//Out screen
+		if(bird.getYhaut()<Window.getHeight())
+			return true;
+		else return false;
 	}
 
 	/** Collisions between game elements
@@ -54,12 +62,13 @@ public class JappyBird {
 		return false;
 	}
 
+	//getSet
+	public Bird getBird() {  return bird; }
+
 	public static void main(String[] args) {
 		JappyBird J = new JappyBird();
 		J.start();
+		System.exit(0);
 	}
-
-	//getSet
-	public Bird getBird() {  return bird; }
 
 }
