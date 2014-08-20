@@ -16,7 +16,7 @@ public class Bird extends InGameObj{
 
 	//initialise the counter based on last mouse click
 	public void bump() {
-		y += 25;
+		y -= 25;
 	}
 
 	//by default -> fall !

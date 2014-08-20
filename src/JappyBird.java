@@ -37,13 +37,13 @@ public class JappyBird {
 			fenetre.refresh();
 			bird.fall();
 			//not so fast !
-			try {Thread.sleep(40);}
+			try {Thread.sleep(100);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
 	}
 
 	/**
-	 *
+	 * End game test
 	 */
 	public boolean isItTheEnd(){
 		//Out screen

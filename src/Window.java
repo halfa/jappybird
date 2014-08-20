@@ -1,3 +1,5 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
@@ -42,8 +44,6 @@ public class Window {
 		frame.add(screen);
 		frame.setVisible(true);
 
-
-
 		//Hand to the game engine !
 	}
 
@@ -65,12 +65,12 @@ public class Window {
 	public static int getHeight(){ return height; }
 
 	//Draw panel for window
-	public class DrawPanel extends JPanel {
+	public class DrawPanel extends JPanel implements MouseListener {
 		static final long serialVersionUID = 1L; //compatibility
 		public DrawPanel() {
 			//Double buffering
 			super(true);
-			addMouseListener(new Control());
+			addMouseListener(this);
 		}
 
 		/*****************************
@@ -100,7 +100,17 @@ public class Window {
 			}
 		}
 
-
+		/**
+		 * The class own listener for the mouse, mostly unused
+		 */
+		public void mouseClicked(MouseEvent e) {}
+		public void mouseEntered(MouseEvent e) {}
+		public void mouseExited(MouseEvent e) {}
+		public void mouseReleased(MouseEvent e) {}
+		public void mousePressed(MouseEvent e) {
+			JappyBird.bird.bump();
+			System.out.println("Jump!");
+		}
 	}
 
 }
