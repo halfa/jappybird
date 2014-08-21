@@ -5,7 +5,7 @@
  * @author Maximilien Richer
  * @author Julien Vifflanzef
  * @author Axel Caro
- * @version 0.0.1
+ * @version 0.0.2
  ********************************/
 public class JappyBird {
 
@@ -16,13 +16,13 @@ public class JappyBird {
 	public static Vector<Tube> tubes = new Vector<Tube>();
 	//numbers
 	public static int score = 0;
-	public static int betweenTubes = 30; //distance between top and bot tube here because it is a game parameter
+	public static int betweenTubes = 60; //distance between top and bot tube here because it is a game parameter
 	public static int speed = 5;
 
 	public JappyBird() {
 		// tubes init.
-		for(int i=0; i<500; i++)
-			tubes.add(new Tube());
+		for(int i=0; i<5000; i+=150)
+			tubes.add(new Tube(i));
 		fenetre = new Window(this); //IHM
 	}
 
@@ -37,7 +37,7 @@ public class JappyBird {
 			fenetre.refresh();
 			bird.fall();
 			//not so fast !
-			try {Thread.sleep(100);}
+			try {Thread.sleep(40);}
 			catch (InterruptedException e) {e.printStackTrace();}
 		}
 	}

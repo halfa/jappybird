@@ -48,14 +48,17 @@ public class Window {
 		//frame.setResizable(false);
 
 		//Hand to the game engine !
+		System.out.println("Initialisation complete !");
 	}
 
 	//Chargement les spites
 	private void load() throws IOException{
+		System.out.print("Loading images...");
 		background = ImageIO.read(new File("rsc/fond2.png"));
 		bird = ImageIO.read(new File("rsc/bird.png"));
 		tubeDown = ImageIO.read(new File("rsc/tubeDown.png"));
 		tubeUp = ImageIO.read(new File("rsc/tubeUp.png"));
+		System.out.print(" Complete !\n");
 	}
 
 	//refresh JPanel
@@ -113,7 +116,6 @@ public class Window {
 		public void mouseReleased(MouseEvent e) {}
 		public void mousePressed(MouseEvent e) {
 			JappyBird.bird.bump();
-			System.out.println("Jump!");
 		}
 	}
 

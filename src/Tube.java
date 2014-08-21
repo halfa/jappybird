@@ -10,8 +10,15 @@ public class Tube extends InGameObj{
 
 	public Tube() {
 		super(100,26); //TODO bad behavior
-		x = Window.getWidth()+1;
+		x = Window.getWidth()+1; //to be offscreen
 		y = Window.getHeight()+((int)Math.random()*100-270);
+		space = JappyBird.betweenTubes;
+	}
+
+	public Tube(int pos) {
+		super(100,26); //TODO bad behavior
+		x = Window.getWidth()+pos; //to be offscreen
+		y = Window.getHeight()+(int)(Math.random()*100-270);
 		space = JappyBird.betweenTubes;
 	}
 

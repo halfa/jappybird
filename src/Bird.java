@@ -25,6 +25,6 @@ public class Bird extends InGameObj{
 	//by default -> fall !
 	public void fall(){
 		sinceLastBump++;
-		y += sinceLastBump; //linear fall
+		y += sinceLastBump/3; //linear fall
 	}
 }
