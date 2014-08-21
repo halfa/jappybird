@@ -32,8 +32,7 @@ public class Window {
 	public Window(JappyBird j) {
 		jeu = j;
 		frame = new JFrame(JappyBird.gameName);
-		frame.setSize(width+15, height+38);
-		//frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//Sprites loading
 		try{ load();
@@ -42,7 +41,11 @@ public class Window {
 		//Windows init.
 		screen = new DrawPanel();
 		frame.add(screen);
+		frame.pack();
 		frame.setVisible(true);
+		frame.setSize(width+15, height+38);
+		//the following is causing issue
+		//frame.setResizable(false);
 
 		//Hand to the game engine !
 	}
@@ -67,6 +70,7 @@ public class Window {
 	//Draw panel for window
 	public class DrawPanel extends JPanel implements MouseListener {
 		static final long serialVersionUID = 1L; //compatibility
+
 		public DrawPanel() {
 			//Double buffering
 			super(true);
