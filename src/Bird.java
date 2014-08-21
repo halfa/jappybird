@@ -4,7 +4,6 @@
  */
 public class Bird extends InGameObj{
 
-	//private int y;
 	public int sinceLastBump;
 
 	public Bird() {
@@ -16,10 +15,19 @@ public class Bird extends InGameObj{
 
 	//initialise the counter based on last mouse click
 	public void bump() {
-		y -= 30;
+		for(int i=5; i>0; i--){
+			this.y-=Math.pow(i,2);
+			if(y<0)
+				y=0;
+			//tubes are going foward
+			for(Tube t:JappyBird.tubes) //TODO need more cleaning
+				t.foward();
+			JappyBird.fenetre.refresh();
+			//not so fast !
+			try {Thread.sleep(40);}
+			catch (InterruptedException e) {e.printStackTrace();}
+		}
 		sinceLastBump = 0;
-		if(y<0)
-			y=0;
 	}
 
 	//by default -> fall !
