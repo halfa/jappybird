@@ -21,7 +21,7 @@ public class JappyBird {
 
 	public JappyBird() {
 		// tubes init.
-		for(int i=0; i<5000; i+=150)
+		for(int i=0; i<10000; i+=150)
 			tubes.add(new Tube(i));
 		fenetre = new Window(this); //IHM
 	}
@@ -35,7 +35,8 @@ public class JappyBird {
 			for(Tube t:tubes)
 				t.foward();
 			fenetre.refresh();
-			bird.fall();
+			//jumping or falling ?
+			bird.act();
 			//not so fast !
 			try {Thread.sleep(40);}
 			catch (InterruptedException e) {e.printStackTrace();}

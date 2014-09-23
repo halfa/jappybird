@@ -4,34 +4,37 @@
  */
 public class Bird extends InGameObj{
 
-	public int sinceLastBump;
+	public int sinceLastBump; //downward acceleration
+	public int bump; //jump linear counter
 
 	public Bird() {
 		super(12,17);
-		x = 144/3-6; //bird position is fixed in the middle of the screen
+		x = 144/3-6; //bird lateral position is fixed in the middle of the screen
 		sinceLastBump = 0;
+		bump=0;
 		y = 256/2; //altitude
 	}
 
-	//initialise the counter based on last mouse click
-	public void bump() {
-		for(int i=5; i>0; i--){
-			this.y-=Math.pow(i,2);
-			if(y<0)
-				y=0;
-			//tubes are going foward
-			for(Tube t:JappyBird.tubes) //TODO need more cleaning
-				t.foward();
-			JappyBird.fenetre.refresh();
-			//not so fast !
-			try {Thread.sleep(40);}
-			catch (InterruptedException e) {e.printStackTrace();}
-		}
-		sinceLastBump = 0;
+	//
+	public void act(){
+		if (bump>0)
+			this.actJump();
+		else
+			this.actFall();
 	}
+	
 
-	//by default -> fall !
-	public void fall(){
+	//initialise the counter based on last mouse click
+	public void triggerJump(){ bump = 5; }
+	
+	private void actJump() {
+		this.y-=Math.pow(this.bump,2);
+		if(y<0)
+			y=0;
+		sinceLastBump = 0;
+		bump--;
+	}
+	private void actFall(){
 		sinceLastBump++;
 		y += sinceLastBump/3; //linear fall
 	}

@@ -115,7 +115,7 @@ public class Window {
 		public void mouseExited(MouseEvent e) {}
 		public void mouseReleased(MouseEvent e) {}
 		public void mousePressed(MouseEvent e) {
-			JappyBird.bird.bump();
+			JappyBird.bird.triggerJump();
 		}
 	}
 
