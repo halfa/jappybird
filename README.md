@@ -1,14 +1,20 @@
 JappyBird
 -------
-Petit projet sans prétention avec les sprites du jeu original (avec une teinte différente).
+A shamful copy of the original game (on Android system) with some color shift.
+Use java.swing lib.
 
-**Lib: java.swing**
-**IDE:eclipse**
+Compilation
+---
+javac -encoding UTF8 -d ./bin -g src/*
 
 Commandes
 ----
-A l'aide de la souris (clic gauche)
+Using the mouse (left click)
 
-A propos
+Bugs
 ----
-Simple défi au début, plus compliqué que je ne l'aurais pensé.
+On linux system, backgrount is not properly displayed
+
+About
+____
+Nothing yet
