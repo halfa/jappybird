@@ -3,7 +3,7 @@ JappyBird
 A shamful copy of the original game (on Android system) with some color shift.
 Use *java.awt* library.
 
-[screenshot](https://raw.githubusercontent.com/halfa/jappybird/master/rsc/screen.png)
+![screenshot](https://raw.githubusercontent.com/halfa/jappybird/master/rsc/screen.png)
 
 Compilation
 ---
