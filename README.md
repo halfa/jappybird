@@ -1,13 +1,15 @@
 JappyBird
 -------
 A shamful copy of the original game (on Android system) with some color shift.
-Use java.swing lib.
+Use *java.awt* library.
+
+[screenshot]
 
 Compilation
 ---
-javac -encoding UTF8 -d ./bin -g src/*
+	javac -encoding UTF8 -d ./bin -g src/*
 
-Commandes
+Controls
 ----
 Using the mouse (left click)
 
@@ -16,5 +18,5 @@ Bugs
 On linux system, backgrount is not properly displayed
 
 About
-____
-Nothing yet
+---
+Nothing yet, spare time project.
