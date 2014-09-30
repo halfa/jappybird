@@ -1,6 +1,6 @@
 /**
  * Abstract class for in-game objects
- * Collide Engine
+ * Collide Engine *todo*
  * @author Maximilien
  */
 public abstract class InGameObj {
