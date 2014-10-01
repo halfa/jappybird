@@ -36,6 +36,4 @@ public class Tube extends InGameObj{
 	public int getYBas(){ return y+hauteur+space;}
 
 	public void foward(){ x -= JappyBird.speed; }
-	public boolean isOffScreenLeft(){ return x+largeur<0; }
-
 }

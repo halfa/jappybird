@@ -30,6 +30,7 @@ public abstract class InGameObj {
 	public boolean isIn(int n, int a, int b){
 		if(n>a && n<b)
 			return true;
-		return false;
+		else return false;
 	}
+	public boolean isOffScreenLeft(){ return x+largeur<0; }
 }
